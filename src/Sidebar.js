@@ -1,3 +1,15 @@
+function RenderUser(props){
+    return(
+        <div class="usuario">
+                    <img src={props.src} />
+                    <div class="texto">
+                    <strong>{props.username}</strong>
+                    {props.user}
+                    </div>
+                </div>
+    )
+}
+
 function RenderSugestions(objectSugestions){
     return(
             <div class="sugestao">
@@ -45,13 +57,7 @@ export default function Sidebar(){
     return(
         <div class="sidebar">
             
-                <div class="usuario">
-                    <img src="assets/img/catanacomics.svg" />
-                    <div class="texto">
-                    <strong>catanacomics</strong>
-                    Catana
-                    </div>
-                </div>
+                <RenderUser src="assets/img/catanacomics.svg" username="catanacomics" user="catana"/> 
 
                 <div class="sugestoes">
                     <div class="titulo">

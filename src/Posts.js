@@ -1,4 +1,27 @@
+
+import React from 'react';
+
 function RenderPost(objectPosts){
+    const [color, setColor] = React.useState("unliked md hydrated");
+    const [name, setName] = React.useState("heart-outline")
+    console.log(color, name)
+
+    function Changecolor(){
+        console.log("entrou na changecolor")
+        console.log(color, name)
+        if(color == "unliked md hydrated"){
+            setColor("liked md hydrated");
+            setName("heart");
+            console.log(color , name);
+        }
+        else{
+            console.log(color , name,"entrou");
+            setColor("unliked md hydrated");
+            setName("heart-outline");
+            console.log(color , name);
+        }
+        console.log(color, name)
+    }
     return(
         <div class="post">
                     <div class="topo">
@@ -12,20 +35,20 @@ function RenderPost(objectPosts){
                     </div>
 
                     <div class="conteudo">
-                        <img src={objectPosts.Img} />
+                        <img onClick={()=>{setColor("liked md hydrated");setName("heart")}} src={objectPosts.Img} />
                     </div>
 
                     <div class="fundo">
                         <div class="acoes">
                             <div>
-                                <ion-icon name="heart-outline"></ion-icon>
+                                <ion-icon name={name} class = {color} onClick={Changecolor}></ion-icon>
                                 <ion-icon name="chatbubble-outline"></ion-icon>
                                 <ion-icon name="paper-plane-outline"></ion-icon>
                             </div>
-                        <div>
-                            <ion-icon name="bookmark-outline"></ion-icon>
-                        </div>
-                        </div>
+                            <div>
+                                <ion-icon name="bookmark-outline"></ion-icon>
+                            </div>
+                    </div>
                         <div class="curtidas">
                             <img src={objectPosts.ImgLike} />
                             <div class="texto">
